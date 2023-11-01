@@ -44,9 +44,9 @@ int main()
 	ll.add_segment((uint8_t*)basepntr + (allocsize * 5), 100); //add tail
 	ll.add_segment((uint8_t*)basepntr + (allocsize * 6), 100); //merge tail
 	ll.add_segment((uint8_t*)basepntr + (allocsize * 8), 100); //add tail
-	ll.add_segment((uint8_t*)basepntr + (allocsize * 2), 100); //merge between
-	ll.add_segment((uint8_t*)basepntr + (allocsize * 4), 100); //merge between
-	ll.add_segment((uint8_t*)basepntr + (allocsize * 7), 100); //merge between
+	//ll.add_segment((uint8_t*)basepntr + (allocsize * 2), 100); //merge between
+	//ll.add_segment((uint8_t*)basepntr + (allocsize * 4), 100); //merge between
+	//ll.add_segment((uint8_t*)basepntr + (allocsize * 7), 100); //merge between
 	ll.add_segment((uint8_t*)basepntr + (allocsize * 0), 100); //merge between
 	//allocate segments
 	ll.alloc_segment(basepntr, 30);
@@ -67,12 +67,12 @@ int main()
 	//ll.delete_segment((uint8_t*)basepntr + 165);
 	//ll.delete_segment((uint8_t*)basepntr + 198);
 
-	//char* list = (char*)ll.get_list(basepntr);
+	char* list = (char*)ll.get_list(basepntr);
 
-	//for (int i = 0; i < sizeof(list)/sizeof(list[0]); i++)
-	//{
-	//	std::cout << list[i];
-	//}
+	for (int i = 0; i < sizeof(list)/sizeof(list[0]); i++)
+	{
+		std::cout << list[i];
+	}
 
 
 	free(basepntr);

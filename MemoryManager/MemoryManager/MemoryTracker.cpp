@@ -173,14 +173,26 @@ void* MemoryTracker::get_list(void* basepntr)
 	if (this->memory_map.size() > 0)
     {
 		auto iterator = this->memory_map.begin();
-        char* list = (char*)malloc((this->memory_map.size() * 2));
-        for (int i = 0; i < (this->memory_map.size()) * 2; i + 2)
+        int* list = (int*)malloc((this->memory_map.size() * 2));
+
+		intptr_t x = (intptr_t)(iterator->second->start);
+		intptr_t y = (intptr_t)(basepntr);
+		int z = 0;
+
+        for (int i = 0; i < (this->memory_map.size()) * 2; i += 2)
         {
-            list[i] = (uint8_t*)(iterator->second->start) - (uint8_t*)basepntr;
-            list[i + 1] = iterator->second->sizeinbytes;
+			x = (intptr_t)(iterator->second->start);
+			y = (intptr_t)(basepntr);
+			z = (int)(iterator->second->sizeinbytes);
+            list[i] = x-y;
+			list[i + 1] = z;
 			if (iterator == std::prev(this->memory_map.end()))
 			{
 				break;
+			}
+			else
+			{
+				iterator++;
 			}
         }
         return (void*)list;
