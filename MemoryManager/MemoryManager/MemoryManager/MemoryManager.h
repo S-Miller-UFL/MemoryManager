@@ -11,8 +11,13 @@
 */
 
 #pragma once
-#include <functional>;
-#include "LinkedList.h";
+#include <functional>
+#include "MemoryTracker.h"
+#include<unistd.h>
+#include <string>
+#include<fcntl.h>
+#include<sys/types.h>
+#include<sys/stat.h>
 class MemoryManager
 {
 public:
@@ -69,13 +74,15 @@ public:
 	unsigned getMemoryLimit();
 
 private:
-	unsigned int wordSize = 0;
+	unsigned wordSize = 0;
 	std::function<int(int, void*)> allocator_type;
 	unsigned int memory_limit = 0;
 	void* alloc_start = nullptr;
 	void* hole_pointer = nullptr;
-	LinkedList hole_list;
-	LinkedList block_list;
+	MemoryTracker free_map;
+	MemoryTracker taken_map;
+	size_t numberofwords = 0;
+	unsigned int bytes_memory_left = 0;
 
 };
 

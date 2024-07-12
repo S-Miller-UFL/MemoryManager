@@ -19,18 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="leaker.cpp" />
-    <ClCompile Include="MemoryManager\LinkedList.cpp" />
+    <ClCompile Include="catch\catch_amalgamated.cpp" />
+    <ClCompile Include="Catch_test.cpp" />
     <ClCompile Include="MemoryManager\MemoryManager.cpp" />
-    <ClCompile Include="MemoryTracker.cpp" />
+    <ClCompile Include="MemoryManager\MemoryTracker.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="testfile.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="leaker.h" />
-    <ClInclude Include="MemoryManager\LinkedList.h" />
+    <ClInclude Include="catch\catch_amalgamated.hpp" />
     <ClInclude Include="MemoryManager\MemoryManager.h" />
-    <ClInclude Include="MemoryTracker.h" />
+    <ClInclude Include="MemoryManager\MemoryTracker.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

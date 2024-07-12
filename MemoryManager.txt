@@ -1,0 +1,141 @@
+.TH Project 2
+.SH Name
+Project 2: Memory Management
+.SH Synopsis
+Creating a memory manager library to allow a user to allocate space using pointers
+.SH Description
+
+The project was started by picking my data structure, I chose a \fBstd::map\fR because it allowed memory
+to be associated with a void pointer via a key value pair.
+
+The library functions are in \fB MemoryManager.cpp\fR
+.br
+These library functions are needed to allow the user to actually allocate memory.
+
+.TP
+The actual data structure is in \fB MemoryTracker.cpp\fR
+
+.TP
+The functions in \fBMemoryManager.cpp\fR are:
+
+.TP
+public MemoryManager(unsigned wordSize, std::function<int(int, void *)> allocator)
+.br
+Creates the \fBMemoryManager\fR object. 
+Also sets the allocation algorithm, wordsize, and creates the hole, and
+block data structure.
+
+.TP
+public ~MemoryManager()
+.br
+Destructor for \fBMemoryManager\fR
+Calls \fBShutdown\fR if there is any memory left.
+
+.TP
+public void initialize(size_t sizeInWords)
+.br
+Allocates memory from OS.
+If \fBsizeInWords\fR is greater than 65536, no memory is allocated.
+
+.TP
+public void shutdown()
+.br
+Clears out hole and block data structures and releases memory back to OS.
+
+.TP
+public void *allocate(size_t sizeInBytes)
+.br
+Allocates memory from a selected block in the hole data structure. 
+It does this by calling one of the allocation algorithms selected by the user, and
+uses the offset returned by the algorithm to select a hole to allocate from.
+Returns \fBvoid*\fR
+
+.TP
+public void free(void *address)
+.br
+Frees memory by deleting the selected entry from the block
+data structure and adding it back to the hole data structure, merging
+if needed.
+
+.TP
+public void setAllocator(std::function<int(int, void *)> allocator)
+.br
+Allows user to choose another allocation algorithm.
+
+.TP
+public int dumpMemoryMap(char *filename)
+.br
+writes list of holes available into file. File name is passed in by user.
+
+.TP
+public void *getList()
+.br
+returns \fBvoid*\fR to an array listing all holes available.
+
+.TP
+public void *getBitmap()
+.br
+returns \fBvoid*\fR to an array list all holes available in bitmap format.
+
+.TP
+public unsigned getWordSize()
+.br
+returns wordsize chosen by user.
+
+.TP
+public void *getMemoryStart()
+.br
+returns \fBvoid*\fR to start of allocated memory block.
+
+.TP
+public unsigned getMemoryLimit()
+.br
+returns maximum number of bytes that can be allocated
+
+.TP
+int bestFit(int sizeInWords, void *list)
+.br
+returns offset of the best available memory block.
+Offset is how many words away from start of block.
+Algorithm chooses smallest hole available by iterating through
+list provided by \fBgetList()\fR.
+
+.TP
+int worstFit(int sizeInWords, void *list)
+.br 
+returns offset of the best available memory block.
+Offset is how many words away from start of block.
+Algorithm chooses largest hole available by iterating through
+list provided by \fBgetList()\fR.
+
+.TP
+\fB Commands \fR
+
+.br
+
+1.\fBvalgrind --track-origins=yes --leak-check=full --show-leak-kinds=all ./<testfilename>\fR
+    This command runs valgrind to check for memory errors.
+    \fB--track-origins=yes\fR tracks origins of uninitialized values
+    \fB--leak-check=full\fR checks for memory leaks and shows details about any that are detected
+    \fB--show-leak-kinds=all\fR shows all the types of leaks that your program may suffer from
+    with <testfilename> being the name of the program you want to check.
+    This command was given by a TA.
+
+.SH TESTING
+The system calls were tested by the command line test file given to us.
+I also tested using a testing file provided by brian magnuson.
+
+To find memory leaks, I installed \fBvalgrind\fR into my virtual machine and ran command 1 repeatedly.
+
+.SH BUGS
+No bugs I am aware of.
+.SH LINK
+.br
+https://youtu.be/hoyEQdjjkEs
+
+.SH REFERENCES/CITATIONS
+.br
+1.www.prepbytes.com/blog/cpp-programming/reverse-elements-of-an-array-in-cpp/
+
+.SH Author
+Steven Miller

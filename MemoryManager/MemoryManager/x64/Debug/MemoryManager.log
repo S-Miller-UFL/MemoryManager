@@ -1,3 +1,18 @@
-﻿  MemoryTracker.cpp
-C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\MemoryTracker.cpp(187,24): warning C4244: '=': conversion from 'intptr_t' to 'int', possible loss of data
-  MemoryManager.vcxproj -> C:\Users\steve\source\cop4600\project 2\MemoryManager\x64\Debug\MemoryManager.exe
+﻿  catch_amalgamated.cpp
+  Catch_test.cpp
+c1xx : fatal  error C1083: Cannot open source file: 'Catch_test.cpp': No such file or directory
+  MemoryManager.cpp
+C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\MemoryManager\MemoryManager.h(16,9): fatal  error C1083: Cannot open include file: 'unistd.h': No such file or directory
+  MemoryTracker.cpp
+C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\MemoryManager\MemoryTracker.cpp(24,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\MemoryManager\MemoryTracker.cpp(192,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\MemoryManager\MemoryTracker.cpp(192,18): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\MemoryManager\MemoryTracker.cpp(202,36): warning C4267: '=': conversion from 'size_t' to 'uint16_t', possible loss of data
+C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\MemoryManager\MemoryTracker.cpp(210,15): warning C4244: '=': conversion from 'intptr_t' to 'uint16_t', possible loss of data
+C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\MemoryManager\MemoryTracker.cpp(216,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\MemoryManager\MemoryTracker.cpp(315,28): warning C4267: 'initializing': conversion from 'size_t' to 'uint16_t', possible loss of data
+  test.cpp
+C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\test.cpp(13,10): fatal  error C1083: Cannot open include file: '../MemoryManager/MemoryManager.h': No such file or directory
+  testfile.cpp
+  Generating Code...
+C:\Users\steve\source\cop4600\project 2\MemoryManager\MemoryManager\MemoryManager\MemoryTracker.cpp(246): warning C4715: 'MemoryTracker::get_list': not all control paths return a value
